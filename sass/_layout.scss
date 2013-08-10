@@ -1,0 +1,25 @@
+header{
+	position: absolute;
+	bottom: 0px;
+	height: 70px;
+	width: 100%;
+	background-color: $lightgrey;
+}
+.container{
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 100px;
+}
+section{
+	width: 100%;
+	padding-top: 70px;
+	 @include box-sizing(border-box);
+	&#top{
+		height: 100%;
+	}
+
+}
+.text-center{
+	text-align: center;
+}

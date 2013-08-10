@@ -1,0 +1,43 @@
+.ribbon{
+	margin-top: 20px;
+	position: relative;
+}
+ul#main_nav{
+		margin-top: -43px;
+		position: relative;
+		li{
+			display: inline-block;
+			padding: 10px 20px;
+			&+ li{
+				margin-left: 80px;
+			}
+			&:nth-child(2){
+				margin-right: 40px;
+			}
+			&:hover{
+				background-image: url('images/menu_hover.jpg'), url('images/menu_hover.jpg');
+				background-repeat: no-repeat;
+				background-position: left center, right center;
+			}
+			a{
+				font-family: $montserrat;
+				font-size: 16px;
+				font-weight: 400;
+				color: $pink;
+				text-transform: uppercase;
+			}
+		}
+}
+section{
+	h1{
+		color: $medgrey;
+	}
+	&#about{
+		background-color: $pink;
+		color: #ffffff;
+		padding-bottom: 50px;
+		h1{
+			color: #ffffff;
+		}
+	}
+}

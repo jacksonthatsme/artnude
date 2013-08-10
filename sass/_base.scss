@@ -1,0 +1,71 @@
+/* =Reset
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+.clear{
+	clear: both;
+	margin: 0px;
+}
+/* =Reset
+-------------------------------------------------------------- */
+
+/*======= Global Variables =======*/
+$darkgrey: #333333;
+$medgrey: #b7b7b7;
+$lightgrey: #edede9;
+$pink: #eb2c7b;
+$purple: #5b2e8c;
+$montserrat: 'Montserrat', sans-serif;
+$lato: 'Lato', sans-serif;
+
+
+/*======= Mixins =======*/
+@mixin text-link{
+	border-bottom: dotted 2px $purple;
+	color: inherit;
+}
+@mixin btn{
+	padding: 4px 16px 5px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 12px;
+	border-color: $medgrey;
+	width: intrinsic;
+	&:hover{
+		background-color: $medgrey;
+	}
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+body {
+	margin: 0px auto;
+	text-align: center;
+	background-color: #fffefa;
+	color: $darkgrey;
+}
