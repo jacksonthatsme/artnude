@@ -7,23 +7,29 @@ h1{
 	background-position: top center;
 	background-repeat: no-repeat;
 	text-align: center;
+	padding-bottom: 60px;
 }
 h2{
 	font-family: $lato;
 	font-weight: 100;
 	line-height: 48px;
 	font-size: 30px;
-	margin-top: 60px;
-	a{
-		@include text-link;
-		&.btn{
-			@include btn;
-			border-color: #ffffff;
-			text-align: center;
-			&:hover{
-				background-color: #ffffff;
-				color: $pink;
-			}
-		}
+}
+h3{
+	font-family: $lato;
+	font-size: 22px;
+	font-weight: 700;
+	margin-bottom: 25px;
+}
+p{
+	font-family: $lato;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 29px;
+	em{
+		font-weight: 700;
+	}
+	&+ p{
+		margin-top: 12px;
 	}
 }

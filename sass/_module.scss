@@ -1,6 +1,7 @@
 .ribbon{
 	margin-top: 20px;
 	position: relative;
+	text-align: center;
 }
 ul#main_nav{
 		margin-top: -43px;
@@ -39,5 +40,37 @@ section{
 		h1{
 			color: #ffffff;
 		}
+		h2{
+			text-align: center;
+			a{
+				@include text-link;
+				&.cta{
+					padding: 4px 16px 5px;
+					border-width: 1px;
+					border-style: solid;
+					border-radius: 12px;
+					width: intrinsic;
+					border-color: #ffffff;
+					text-align: center;
+					&:hover{
+						background-color: #ffffff;
+						color: $pink;
+					}
+				}
+			}
+			&+ h2{
+				margin-top: 60px;
+			}
+		}
+	}
+}
+a{
+	&.btn{
+		@include btn;
+		color: $pink;
+		font-family: $lato;
+		font-size: 14px;
+		font-weight: 900;
+		margin-top: 15px;
 	}
 }
