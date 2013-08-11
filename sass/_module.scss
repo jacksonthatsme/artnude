@@ -44,6 +44,7 @@ section{
 			text-align: center;
 			a{
 				@include text-link;
+				border-bottom-width: 2px;
 				&.cta{
 					padding: 4px 16px 5px;
 					border-width: 1px;
@@ -63,6 +64,9 @@ section{
 			}
 		}
 	}
+	&#email{
+		background-color: $lightgrey;
+	}
 }
 a{
 	&.btn{
@@ -71,6 +75,6 @@ a{
 		font-family: $lato;
 		font-size: 14px;
 		font-weight: 900;
-		margin-top: 15px;
+		margin-top: 7px;
 	}
 }

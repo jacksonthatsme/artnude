@@ -45,7 +45,7 @@ $white: #ffffff;
 
 /*======= Mixins =======*/
 @mixin text-link{
-	border-bottom: dotted 2px $purple;
+	border-bottom: dotted 1px $purple;
 	color: inherit;
 }
 @mixin btn{
