@@ -68,6 +68,32 @@ section{
 		background-color: $lightgrey;
 	}
 }
+input{
+	border-bottom: 2px dotted $medgrey;
+	width: 500px;
+	background-color: $lightgrey;
+	font-size: 25px;
+	font-weight: 100;
+	text-align: center;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+input:active{
+	box-shadow: none;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    font-weight: 100;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-weight: 100;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-weight: 100;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-weight: 100;
+}
 a{
 	&.btn{
 		@include btn;
