@@ -67,7 +67,8 @@ section{
 	&#email{
 		background-color: $lightgrey;
 		padding-top: 30px;
-		padding-bottom: 40px;
+		padding-bottom: 60px;
+		margin-top: 70px;
 		form{
   		& *{
     		display: inline-block;
@@ -81,6 +82,30 @@ section{
 			color: $medgrey;
 		}
 		.pagedown{
+		}
+	}
+	&#contact{
+		.container{
+			div{
+				width: 250px;
+				display: inline-block;
+				vertical-align: top;
+				padding-right: 40px;
+				&.twitter{
+					p{
+						font-size: 15px;
+						padding-bottom: 20px;
+						border-bottom: 1px solid $medgrey;
+						line-height: 19px;
+						&:first-of-type{
+							margin-top: 20px;
+						}
+					}
+				}
+				&.links{
+					width: 270px;
+				}
+			}
 		}
 	}
 }

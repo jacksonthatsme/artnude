@@ -1,9 +1,12 @@
 .tl-upcoming-item{
   display: block;
   padding: 20px 15px;
-  border-bottom: 1px solid $lightgrey;
+  border-top: 1px solid $lightgrey;
   &:hover{
     background-color: $lightgrey;
+  }
+  &:first-of-type{
+	  border-top: none;
   }
   & *{
     display: inline-block;
