@@ -66,6 +66,13 @@ section{
 	}
 	&#email{
 		background-color: $lightgrey;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		form{
+  		& *{
+    		display: inline-block;
+  		}
+		}
 	}
 	&#top{
 		padding-top: 20px;
@@ -77,7 +84,18 @@ section{
 		}
 	}
 }
-input{
+input[type=submit]{
+  background-image: url('images/return.png');
+  width: 39px;
+  height: 23px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: $lightgrey;
+  border-bottom: 2px dotted $medgrey;
+  cursor: pointer;
+  float: left;
+}
+input[type=email]{
 	border-bottom: 2px dotted $medgrey;
 	width: 500px;
 	background-color: $lightgrey;
@@ -87,21 +105,7 @@ input{
 	border-top: none;
 	border-right: none;
 	border-left: none;
-}
-input:active{
-	box-shadow: none;
-}
-input::-webkit-input-placeholder { /* WebKit browsers */
-    font-weight: 100;
-}
-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    font-weight: 100;
-}
-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-    font-weight: 100;
-}
-input:-ms-input-placeholder { /* Internet Explorer 10+ */
-    font-weight: 100;
+	margin-top: 25px;
 }
 a{
 	&.btn{

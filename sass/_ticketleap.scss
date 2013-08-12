@@ -1,0 +1,44 @@
+.tl-upcoming-item{
+  display: block;
+  padding: 20px 15px;
+  border-bottom: 1px solid $lightgrey;
+  &:hover{
+    background-color: $lightgrey;
+  }
+  & *{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .tl-upcoming-event-dates{
+    font-family: $lato;
+    font-size: 14px;
+    font-weight: 900;
+    color: $pink;
+    letter-spacing: 1px;
+  }
+  .tl-upcoming-event-title{
+    font-family: $montserrat;
+    font-size: 21px;
+    color: $darkgrey;
+    padding-left: 60px;
+    text-align:  right;
+  }
+  .tl-upcoming-item-control{
+    float: right;
+  }
+  .tl-upcoming-button-buy{
+    @include btn;
+    cursor: pointer;
+    font-family: $lato;
+    font-size: 14px;
+    font-weight: 900;
+    color: $pink;
+    background-color: #fffefa;
+    margin-top: -3px;
+  }
+  .dropdown{
+    float: right;
+    display: inline-block;
+    padding-left: 10px;
+  }
+}

@@ -23,7 +23,7 @@
 	var FormattableDate = function(date){
 			var d = new Date(date),
 				dayMap = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-				monthMap = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				monthMap = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
 			return {
 				day: dayMap[d.getDay()],
@@ -34,9 +34,8 @@
 				minute: (d.getMinutes() > 10 ? d.getMinutes() : "0"+d.getMinutes()),
 				ampm: (d.getHours() >= 12 ? 'p.m.' : 'a.m.'),
 				toDateString: function(){
-					return this.day + ", " +
-							this.month + " " +
-							this.date + ", " +
+					return this.month + "." +
+							this.date + "." +
 							this.year;
 				},
 				toTimeString: function(){
@@ -45,7 +44,7 @@
 							this.ampm;
 				},
 				toString: function(){
-					return this.toDateString() + " " + this.toTimeString();
+					return this.toDateString()/* + " " + this.toTimeString()*/;
 				}
 			};
 		},
@@ -86,24 +85,8 @@
 		
 			buildShell: function(){
 				var self = this,
-					html = '<div class="tl-upcoming">' +
-								'<div class="tl-upcoming-header">' +
-									'<h2 class="tl-upcoming-header-label"></h2>' +
-								'</div>'+
-
-								'<div class="tl-upcoming-content">' +
-									'<table class="tl-upcoming-content-list"></table>'+
-								'</div>' +
-
-								'<div class="tl-upcoming-nav">' +
-									'<table class="tl-upcoming-nav-controls">' +
-										'<tr>' +
-											'<td class="tl-upcoming-nav-previous"><span class="tl-upcoming-button tl-upcoming-button-page">&laquo; Previous</span></td>' +
-											'<td class="tl-upcoming-nav-events"><span class="tl-upcoming-button tl-upcoming-button-info">View Events</span></td>' +
-											'<td class="tl-upcoming-nav-next"><span class="tl-upcoming-button tl-upcoming-button-page">Next &raquo;</span></td>' +
-										'</tr>' +
-									'</table>'+
-								'</div>' +
+					html ='<div class="tl-upcoming-content">' +
+									'<div class="tl-upcoming-content-list"></div>'+
 							'</div>';
 			
 				this.shell = $(html);
@@ -181,7 +164,7 @@
 			},
 
 			createButton: function(content, additionalClass, clickFunction){
-				var button = $('<td class="tl-upcoming-item-control"><span class="tl-upcoming-button '+ additionalClass +'">'+ content +'</span></td>');
+				var button = $('<div class="tl-upcoming-item-control"><span class="tl-upcoming-button '+ additionalClass +'">'+ content +'</span></div>');
 				button.click(clickFunction);
 				return button;
 			},
@@ -243,12 +226,13 @@
 
 			createEvent: function(eventObj){
 				var self = this,
-					eventEl = $('<tr class="tl-upcoming-item tl-upcoming-event">' +
-									'<td class="tl-upcoming-item-label tl-upcoming-event-label">' +
+					eventEl = $('<div class="tl-upcoming-item tl-upcoming-event">' +
+									'<div class="tl-upcoming-item-label tl-upcoming-event-label">' +
+									 '<div class="tl-upcoming-event-dates">' + this.formatDisplayDates(eventObj.earliest_start_local, eventObj.latest_end_local) + '</div>' +
 										'<div class="tl-upcoming-event-title">' + eventObj.name +'</div>' +
-										'<div class="tl-upcoming-event-dates">' + this.formatDisplayDates(eventObj.earliest_start_local, eventObj.latest_end_local) + '</div>' +
-									'</td>' +
-								'</tr>');
+									'</div>' +
+									'<div class="dropdown"><img src="images/dropdown.png"></div>' +
+								'</div>');
 
 				if(eventObj.performance_count == 1){
 					eventEl.append(this.createButton('Buy Tickets', 'tl-upcoming-button-buy', function(){
@@ -297,11 +281,11 @@
 
 			createPerformance: function(performanceObj){
 				var self = this,
-					perfEl = $('<tr class="tl-upcoming-item tl-upcoming-performance">' +
-									'<td class="tl-upcoming-item-label">' +
+					perfEl = $('<div class="tl-upcoming-item tl-upcoming-performance">' +
+									'<div class="tl-upcoming-item-label">' +
 										'<div class="tl-upcoming-performance-label">' + this.formatDisplayDates(performanceObj.start_local, performanceObj.end_local) + '</div>' +
-									'</td>' +
-								'</tr>');
+									'</div>' +
+								'</div>');
 			
 				perfEl.append(this.createButton('Buy Tickets', 'tl-upcoming-button-buy', function(){
 					window.open(performanceObj.url);
