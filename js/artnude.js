@@ -17,6 +17,6 @@ $(window).load(function() {
     animation: "slide",
     controlNav: false,
     prevText: "",
-    nextText: "" 
+    nextText: ""
   });
 });
