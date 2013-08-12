@@ -1,0 +1,26 @@
+.flexslider{
+	.flex-direction-nav {
+		a  { 
+			display: block; 
+			width: 46px; 
+			height: 125px; 
+			position: absolute; 
+			top: 340px; 
+			z-index: 10; 
+			cursor: pointer; 
+			background-color: $pink;
+		}
+		.flex-prev {
+			 left: 80px;
+			 background-image: url('images/leftarrow.png');
+			 background-position: center center; 
+			 background-repeat: no-repeat;
+		}
+		.flex-next {
+			right: 80px;
+			background-image: url('images/rightarrow.png');
+			background-position: center center; 
+			background-repeat: no-repeat;
+		}
+	}
+}
