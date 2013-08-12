@@ -67,6 +67,15 @@ section{
 	&#email{
 		background-color: $lightgrey;
 	}
+	&#top{
+		padding-top: 20px;
+		h3{
+			color: $medgrey;
+			margin-top: 20px;
+		}
+		.pagedown{
+		}
+	}
 }
 input{
 	border-bottom: 2px dotted $medgrey;
