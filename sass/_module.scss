@@ -67,10 +67,11 @@ section{
 	&#email{
 		background-color: $lightgrey;
 		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-bottom: 40px;
 		form{
   		& *{
     		display: inline-block;
+    		vertical-align: bottom;
   		}
 		}
 	}
@@ -78,7 +79,6 @@ section{
 		padding-top: 20px;
 		h3{
 			color: $medgrey;
-			margin-top: 20px;
 		}
 		.pagedown{
 		}
@@ -87,13 +87,14 @@ section{
 input[type=submit]{
   background-image: url('images/return.png');
   width: 39px;
-  height: 23px;
+  height: 26px;
   background-repeat: no-repeat;
   border: none;
   background-color: $lightgrey;
   border-bottom: 2px dotted $medgrey;
   cursor: pointer;
-  float: left;
+  padding: 0px;
+  margin-left: -2px;
 }
 input[type=email]{
 	border-bottom: 2px dotted $medgrey;
@@ -106,6 +107,9 @@ input[type=email]{
 	border-right: none;
 	border-left: none;
 	margin-top: 25px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	outline: none;
 }
 a{
 	&.btn{
