@@ -83,7 +83,6 @@ section{
 				column-gap:30px;
 				-o-column-gap:30px;
 				p{
-					text-align: justify;
 				}
 			}
 			div.jurors{
@@ -147,6 +146,11 @@ section{
 				}
 				&.links{
 					width: 270px;
+					h3{
+						&:first-of-type{
+							margin-top: 0px;
+						}
+					}
 				}
 			}
 		}
