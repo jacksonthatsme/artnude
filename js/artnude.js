@@ -35,11 +35,8 @@ $(window).scroll(function(){
 
 $(document).ready(function(){
   $(".cta").click(function(){
-    $("div.more").toggle(500);   
+    $("div.more").slideToggle(700);
+    $("div.cta h2").toggle();   
   });
 });
-$(document).ready(function(){
-  $(".cta").click(function(){
-    $("div.cta h2").toggle();  
-  });
-});
+

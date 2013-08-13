@@ -29,10 +29,10 @@
 				day: dayMap[d.getDay()],
 				month: monthMap[d.getMonth()],
 				date: d.getDate(),
-				year: d.getFullYear(),
+				year: d.getFullYear().toString().slice(2),
 				hour: (d.getHours() > 12 ? d.getHours() - 12 : (d.getHours() == 0 ? 12 : d.getHours())),
 				minute: (d.getMinutes() > 10 ? d.getMinutes() : "0"+d.getMinutes()),
-				ampm: (d.getHours() >= 12 ? 'p.m.' : 'a.m.'),
+				ampm: (d.getHours() >= 12 ? 'pm' : 'am'),
 				toDateString: function(){
 					return this.month + "." +
 							this.date + "." +
@@ -85,7 +85,7 @@
 		
 			buildShell: function(){
 				var self = this,
-					html ='<div class="tl-upcoming-content">' +
+					html ='<div id="tl-upcoming-content">' +
 									'<div class="tl-upcoming-content-list"></div>'+
 							'</div>';
 			
@@ -129,7 +129,15 @@
 					e = new FormattableDate(endDate);
 				
 				return (s.toDateString() == e.toDateString() ? 
-							s.toDateString()/* + ' ' + s.toTimeString() + ' - ' + e.toTimeString() */:
+							s.toDateString() /*+ ' ' + s.toTimeString() + ' |u2014 ' + e.toTimeString()*/ :
+							s.toString() + ' - ' + e.toString());
+			},
+			formatDisplayTime: function(startDate, endDate){
+				var s = new FormattableDate(startDate),
+					e = new FormattableDate(endDate);
+				
+				return (s.toDateString() == e.toDateString() ? 
+							s.toTimeString() + ' \u2014 ' + e.toTimeString() :
 							s.toString() + ' - ' + e.toString());
 			},
 
@@ -226,13 +234,32 @@
 
 			createEvent: function(eventObj){
 				var self = this,
-					eventEl = $('<div class="tl-upcoming-item tl-upcoming-event">' +
+					eventEl = $('<div class="tl-upcoming-item">' +
 									'<div class="tl-upcoming-item-label tl-upcoming-event-label">' +
 									 '<div class="tl-upcoming-event-dates">' + this.formatDisplayDates(eventObj.earliest_start_local, eventObj.latest_end_local) + '</div>' +
 										'<div class="tl-upcoming-event-title">' + eventObj.name +'</div>' +
 									'</div>' +
-									'<div class="dropdown"><img src="images/dropdown.png"></div>' +
-								'</div>');
+									'<div class="dropdown"></div>' +
+								'</div>' 
+								),
+					eventDr = $('<div class="dropdown-container">' +
+									'<div class="event-info">' + 
+										'<div class="time">' +
+											this.formatDisplayTime(eventObj.earliest_start_local, eventObj.latest_end_local) +
+										'</div>' +
+										'<div class="venue">' +
+											eventObj.venue_name +
+										'</div>' +
+										'<div class="location">' +
+											eventObj.venue_street + ', ' +
+											eventObj.venue_city + ' ' +
+											eventObj.venue_region_name + ', ' +
+											eventObj.venue_postal_code +
+										'</div>' +
+									'</div>' +
+									eventObj.html_description + 
+								'</div>'
+							);
 
 				if(eventObj.performance_count == 1){
 					eventEl.append(this.createButton('Buy Tickets', 'tl-upcoming-button-buy', function(){
@@ -243,8 +270,45 @@
 						self.showPerformancesList(eventObj.slug);
 					}));
 				}
+				
+/*ACCORDION FUNCTIONALITY -- Adopted gracefully from http://www.stemkoski.com/stupid-simple-jquery-accordion-menu/ */
+
+	 
+				//ACCORDION BUTTON ACTION (ON CLICK DO THE FOLLOWING)
+				var eventHead = eventEl;
+				var moreContent = eventDr;
+				moreContent.hide();
+				eventHead.click(function() {
 			
-				return eventEl;
+					//REMOVE THE ON CLASS FROM ALL BUTTONS
+					eventHead.removeClass('on');
+					  
+					//NO MATTER WHAT WE CLOSE ALL OPEN SLIDES
+				 	moreContent.slideUp('slow');
+			   
+					//IF THE NEXT SLIDE WASN'T OPEN THEN OPEN IT
+					if($(this).next().is(':hidden') == true) {
+						
+						//ADD THE ON CLASS TO THE BUTTON
+						$(this).addClass('on');
+						  
+						//OPEN THE SLIDE
+						$(this).next().slideDown('normal');
+					 } 
+					 				
+				//ADDS THE .OVER CLASS FROM THE STYLESHEET ON MOUSEOVER 
+				eventHead.mouseover(function() {
+					$(this).addClass('over');
+					
+				//ON MOUSEOUT REMOVE THE OVER CLASS
+				}).mouseout(function() {
+					$(this).removeClass('over');										
+				});
+				
+			
+			});
+				
+				return [eventEl, eventDr];
 			},
 
 			showPerformancesList: function(eventSlug){
@@ -300,5 +364,9 @@
 		pageSize: 5,
 		apiUrl: "http://public-api.ticketleap.com/"
 	};
+
+	$(document).ready(function() {	
+		
+	});
 
 })(jQuery);
