@@ -233,7 +233,7 @@
 									'</div>' +
 									'<div class="dropdown"><img src="images/dropdown.png"></div>' +
 								'</div>' +
-								'<div>' + eventObj.html_description + '</div>'
+								'<div class="dropdown-container">' + eventObj.html_description + '</div>'
 								);
 
 				if(eventObj.performance_count == 1){
