@@ -45,27 +45,24 @@ section{
 			a{
 				@include text-link;
 				border-bottom-width: 2px;
-			}	
+			}
+			&.cta{
+				padding: 4px 16px 5px;
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 12px;
+				width: intrinsic;
+				border-color: #ffffff;
+				text-align: center;
+				cursor: pointer;
+				margin: 60px auto 0px;
+				&:hover{
+					background-color: #ffffff;
+					color: $pink;
+				}	
+			}
 			&+ h2{
-			}
-		}
-		.cta{
-			padding: 4px 16px 5px;
-			border-width: 1px;
-			border-style: solid;
-			border-radius: 12px;
-			width: intrinsic;
-			border-color: #ffffff;
-			text-align: center;
-			cursor: pointer;
-			margin: 60px auto 0px;
-			&:hover{
-				background-color: #ffffff;
-				color: $pink;
-			}
-			h4{
-				content: "Read More";
-				
+				margin-top: 60px;
 			}
 		}
 		.more{
