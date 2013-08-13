@@ -45,22 +45,58 @@ section{
 			a{
 				@include text-link;
 				border-bottom-width: 2px;
-				&.cta{
-					padding: 4px 16px 5px;
-					border-width: 1px;
-					border-style: solid;
-					border-radius: 12px;
-					width: intrinsic;
-					border-color: #ffffff;
-					text-align: center;
-					&:hover{
-						background-color: #ffffff;
-						color: $pink;
-					}
-				}
+			}
+			&.cta{
+				padding: 4px 16px 5px;
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 12px;
+				width: intrinsic;
+				border-color: #ffffff;
+				text-align: center;
+				cursor: pointer;
+				margin: 60px auto 0px;
+				&:hover{
+					background-color: #ffffff;
+					color: $pink;
+				}	
 			}
 			&+ h2{
 				margin-top: 60px;
+			}
+		}
+		.more{
+			display: none;
+			div{
+				margin-top: 60px;
+			}
+			div.two-up{
+				columns: 380px 2;
+				-webkit-columns: 380px 2;
+				-moz-columns: 380px 2;
+				-o-columns:380px 2;
+				-moz-column-gap:30px; 
+				-webkit-column-gap:30px; 
+				column-gap:30px;
+				-o-column-gap:30px;
+				p{
+					text-align: justify;
+				}
+			}
+			div.jurors{
+				ul.jurors{
+					margin-bottom: 60px;
+					li{
+						display: inline-block;
+						padding: 3px 10px;
+						font-family: $lato;
+						font-weight: 200;
+						&:before{
+							content: '\25CF';
+							padding-right: 20px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -95,10 +131,14 @@ section{
 					p{
 						font-size: 15px;
 						padding-bottom: 20px;
-						border-bottom: 1px solid $medgrey;
+						border-bottom: 1px solid $lightgrey;
 						line-height: 19px;
 						&:first-of-type{
 							margin-top: 20px;
+						}
+						a{
+							border-bottom: none;
+							color: $pink;
 						}
 					}
 				}
@@ -112,14 +152,14 @@ section{
 input[type=submit]{
   background-image: url('images/return.png');
   width: 39px;
-  height: 26px;
+  height: 19px;
   background-repeat: no-repeat;
   border: none;
   background-color: $lightgrey;
-  border-bottom: 2px dotted $medgrey;
   cursor: pointer;
   padding: 0px;
-  margin-left: -2px;
+  margin-bottom: 5px;
+  margin-left: -40px;
 }
 input[type=email]{
 	border-bottom: 2px dotted $medgrey;
@@ -132,9 +172,13 @@ input[type=email]{
 	border-right: none;
 	border-left: none;
 	margin-top: 25px;
-	padding-bottom: 0px;
+	padding-bottom: 4px;
 	margin-bottom: 0px;
+	padding-right: 20px;
 	outline: none;
+	&:focus{
+		border-bottom-color: $darkgrey;
+	}
 }
 a{
 	&.btn{

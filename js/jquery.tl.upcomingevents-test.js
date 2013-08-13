@@ -85,7 +85,7 @@
 		
 			buildShell: function(){
 				var self = this,
-					html ='<div class="tl-upcoming-content">' +
+					html ='<div id="tl-upcoming-content">' +
 									'<div class="tl-upcoming-content-list"></div>'+
 							'</div>';
 			
@@ -129,7 +129,7 @@
 					e = new FormattableDate(endDate);
 				
 				return (s.toDateString() == e.toDateString() ? 
-							s.toDateString()/* + ' ' + s.toTimeString() + ' - ' + e.toTimeString() */:
+							s.toDateString() /*+ ' ' + s.toTimeString() + ' |u2014 ' + e.toTimeString()*/ :
 							s.toString() + ' - ' + e.toString());
 			},
 
@@ -232,7 +232,9 @@
 										'<div class="tl-upcoming-event-title">' + eventObj.name +'</div>' +
 									'</div>' +
 									'<div class="dropdown"><img src="images/dropdown.png"></div>' +
-								'</div>');
+								'</div>' +
+								'<div>' + eventObj.html_description + '</div>'
+								);
 
 				if(eventObj.performance_count == 1){
 					eventEl.append(this.createButton('Buy Tickets', 'tl-upcoming-button-buy', function(){

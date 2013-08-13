@@ -32,3 +32,9 @@ $(window).scroll(function(){
 		}
 		
 });
+
+$(document).ready(function(){
+  $(".cta").click(function(){
+    $("div.more").toggle(500);
+  });
+});

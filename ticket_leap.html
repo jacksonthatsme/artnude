@@ -6,23 +6,46 @@
 		
 		<link href="style.css" rel="stylesheet" type="text/css" />
 
-		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-		<script src="js/jquery.tl.upcomingevents.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="js/jquery.tl.upcomingevents-test.js" type="text/javascript"></script>
+		<script>
+		 $(function() {
+	        $( "#tl-upcoming-content" ).accordion(
+	         { header: '> div.tl-upcoming-item' }
+	        );
+        });
+        $(function() {
+	        $( "#accordion" ).accordion();
+	     });
+	     </script>
 		<script>
 				$(function(){
 					$('#upcoming-events').upcomingEvents({ 
 						pageSize: 5,
-						orgSlug: 'puppies',
+						orgSlug: 'jamesolivergallery',
 						apiUrl: 'http://public-api.ticketleap.com/',
-						apiKey: 'PUT_API_KEY_HERE'
+						apiKey: '5165671287300193'
 					 });
 					 
 				});
 		</script>
 	</head>
 	<body>
-	 <div  class="container">
+	 <div class="container">
 		  <div id="upcoming-events"></div>
 	 </div>
+	 <div class="container">
+		 <div id="accordion">
+			  <h3>Section 1</h3>
+			  <div>
+			    <p>
+			    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+			    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+			    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+			    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+			    </p>
+		</div>
+	</div>
 	</body>
 </html>
