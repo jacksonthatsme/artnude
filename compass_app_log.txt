@@ -616,7 +616,3 @@
 2013-08-13 14:33:05 overwrite style.css 
 2013-08-13 14:33:13 identical style.css 
 2013-08-13 14:35:13 overwrite style.css 
-2013-08-13 14:56:11 overwrite style.css 
-2013-08-13 14:56:23 identical style.css 
-2013-08-13 14:56:27 overwrite style.css 
-2013-08-13 14:58:35 overwrite style.css 
