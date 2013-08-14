@@ -2,7 +2,7 @@
 	cursor: pointer;
   display: block;
   padding: 20px 15px;
-  border-top: 1px solid $lightgrey;
+  border-top: 2px solid $lightgrey;
   &:hover{
     background-color: $lightgrey;
     & .dropdown{
@@ -75,7 +75,7 @@
   }
 }
 .dropdown-container{
-	padding: 0 15px 30px;
+	padding: 0 15px 50px;
 	
 	.event-info{
 		text-align: center;
